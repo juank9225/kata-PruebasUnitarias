@@ -25,7 +25,7 @@ public class BasicCalculator {
     public Long division(Long number1, Long number2){
         logger.info( "Dividing {} / {}", number1, number2 );
         if (number2 == 0){
-            System.out.println("Mi perro está intentando hacer una división indeterminada");
+            throw new RuntimeException("No se puede dividir por cero");
         }
         return number1 / number2;
     }

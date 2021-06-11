@@ -28,5 +28,21 @@ public class App {
         Long result = calculator.sum( number1, number2 );
 
         System.out.println( number1 + " + " + number2 + " = " + result );
+
+        BasicCalculator calculator2 = new BasicCalculator();
+        Long result2 = calculator2.substraction( number1, number2 );
+
+        System.out.println( number1 + " - " + number2 + " = " + result2 );
+
+        BasicCalculator calculator3 = new BasicCalculator();
+        Long result3 = calculator2.mulplication( number1, number2 );
+
+        System.out.println( number1 + " * " + number2 + " = " + result3 );
+
+        BasicCalculator calculator4 = new BasicCalculator();
+        Long result4 = calculator4.division( number1, number2 );
+
+        System.out.println( number1 + " / " + number2 + " = " + result4 );
+
     }
 }
