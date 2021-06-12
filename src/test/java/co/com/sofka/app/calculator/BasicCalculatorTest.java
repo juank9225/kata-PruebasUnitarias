@@ -1,5 +1,6 @@
 package co.com.sofka.app.calculator;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -54,5 +55,31 @@ class BasicCalculatorTest {
     public void severalmulplication(Long first, Long second, Long expectedResult){
         assertEquals(expectedResult,cal.mulplication(first,second),
                 ()->first+" "+second+"should equal "+expectedResult);
+    }
+
+    @DisplayName("Testing several Subtracting")
+    @ParameterizedTest(name = "{5}/{5}={1}")
+    @CsvSource({
+            "25, 5, 5",
+            "14, 2, 7",
+            "8, 4, 2",
+            "100, 50, 2"
+    })
+    public void serveraldivision(Long first, Long second, Long expectedResult){
+        assertEquals(expectedResult,cal.division(first,second),
+                ()->first+" "+second+" should equal "+expectedResult);
+    }
+
+    @DisplayName("Testing several Subtracting")
+    @ParameterizedTest(name = "{5}/{0}")
+    @CsvSource({
+            "5, 0,",
+            "0, 0"
+    })
+    public void sadcasedivision(Long first, Long second){
+     var response=   Assertions.assertThrows(RuntimeException.class,
+                ()->{Long result = cal.division(first,second);
+        });
+        assertEquals("No se puede dividir por cero",response.getMessage());
     }
 }
